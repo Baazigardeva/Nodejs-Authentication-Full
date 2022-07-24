@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <title>Verify Email</title>
+  <style>
+    body {
+      font-family: 'Recursive', sans-serif;
+      font-size: larger;
+      background-color:rgb(168, 229, 255);
+    }
+
+    .customborder {
+      border-radius: 2%;
+      border: 2px solid #E95420;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="container">
+    <!-- Show dialog if user is not verified  -->
+
+    <% if(!verified){ %>
+      <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <strong>ATTENTION !</strong> Please activate your account to Login.
+        <a href="/user/send-verification-email">Send activation email</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+      </div>
+      <% } %>
+
+        <% if(typeof emailsent !='undefined' ){ %>
+          <% if(emailsent){ %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>SUCCESS</strong> Verification Email Sent Sucessfully. Valid Only for 20 minutes.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+            </div>
+
+            <% } %>
+              <% } %>
+                <% if(typeof err !='undefined' ){ %>
+                  <% if(err){ %>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>ERROR </strong>
+                      <%= err %>.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                    </div>
+
+                    <% } %>
+                      <% } %>
+
+                        <div class="card" style="width: 28rem;">
+                          <div class="card-body">
+                            <h3 class="card-title">
+                              Name : <%= fullname %>
+                            </h3>
+
+                          </div>
+                        </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
