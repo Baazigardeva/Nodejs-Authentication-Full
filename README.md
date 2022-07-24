@@ -3,6 +3,7 @@
 ## Registration, Login, Password Reset, Account verification
 ## Modules used : passport, bcrypt, csrf token, nodemailer, mongoose, express
 
+## To Run -> npm start
 ### Add mongoURI ,Google client ID and Secret, smtp config for sending emails 
 
 ![Image1](screenshots/1.png)
